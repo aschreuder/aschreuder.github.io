@@ -12,10 +12,10 @@ const Experience = () => {
       company: "BestSecret Group GmbH",
       period: "Dec 2023 - Present",
       description: [
-        "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
-        "Implemented monitoring and alerting with Prometheus and Grafana.",
-        "Managed cloud resources on Azure using Terraform.",
-        "Automated configuration management with Ansible."
+        "Migrated the UptimeRobot URL monitoring solution from Ansible to Terraform, using GitLab CI/CD for automation and Azure for secure Terraform state management",
+        "Developed and executed a change protocol for Proxmox 7 to 8 upgrade, ensuring system stability with zero downtime",
+        "Optimized alerting systems by adjusting thresholds and implementing automated incident handling processes, significantly reducing false positives and improving the signal-to-noise ratio during On-call hours. As a result, on-call alerts decreased from 645 in February 2024 to 117 by August 2024, improving response efficiency and reducing alert fatigue.",
+        "Conducted code reviews and approved production-level configuration changes, safeguarding deployment integrity and stability."
       ],
       technologies: ["Azure", "Terraform", "Docker", "Git", "Ansible", "Prometheus", "Datadog", "ELK", "Grafana"]
     },
@@ -24,7 +24,10 @@ const Experience = () => {
       company: "Paysafe Group",
       period: "Jun 2021 - Nov 2023",
       description: [
-        "Developed web applications using React, Node.js, and cloud technologies."
+        "Successfully led the migration of all application servers to a new virtual environment running an upgraded version of Debian. Leveraged Terraform for provisioning and building new virtual machines and utilized Puppet for seamless configuration management. Integrated GitLab CI/CD to fully automate the deployment pipeline, ensuring smooth, efficient, and reliable application deployments across the new infrastructure.",
+        "Contributed to the successful migration of our on-premise SFTP solution to AWS, leveraging Terraform to build a resilient infrastructure across two regions and four availability zones, ensuring high availability and security.",
+        "Ensured high availability of applications, databases, and services using Icinga2 and Nagios by developing custom Python scripts for advanced monitoring. This included a ZFS monitoring script to track storage performance and health, as well as a switch port threshold monitoring script for Cisco switches to identify potential switch port errors, discards or high traffic utilization.",
+        "Performing critical security updates on managed servers, including GitLab, firewalls, and Confluence, to patch vulnerabilities, protect against potential threats, and ensure compliance with security best practices"
       ],
       technologies: ["AWS", "Python", "Puppet", "Ansible", "Terraform", "Git", "Icinga", "Docker", "ELK", "Grafana"]
     },
@@ -33,7 +36,10 @@ const Experience = () => {
       company: "Sintrex Integration Services",
       period: "Mar 2018 - Apr 2021", 
       description: [
-        "Started my journey in software development, working on various client projects."
+        "Extracted data from MySQL to generate network performance reports in Excel, including WAN link utilization, throughput, discards, errors, and packet loss. Developed interactive dashboards in Grafana, Kibana, and Microsoft Power BI to visualize NetFlow top talkers by IP and location, and to monitor syslog alerts.",
+        "Pioneered the design of the company's first SD-WAN dashboard, defining data integration from the Cisco Viptela REST API using Postman, resulting in a 30% enhancement in network visibility and monitoring across 50+ client locations.",
+        "Directed the company's inaugural Disaster Recovery project, crafting a comprehensive action plan that ensured 100% redundancy across all critical systems, integrating automatic failover to handle emergencies, and effectively minimizing data loss while securing business continuity.",
+        "Advanced monitoring of Server and Network Infrastructure of large corporate clients via our Monitoring solutions (SNMP / Internal Monitoring Solution / Net Flow / Syslog / Rest API's.)"
       ],
       technologies: ["Linux", "Cisco", "MySQL", "ELK", "PowerBI", "Microsoft Word & Excel", "Grafana"]
     }
