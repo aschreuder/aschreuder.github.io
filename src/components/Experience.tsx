@@ -8,25 +8,25 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Senior DevOps Engineer",
-      company: "Tech Company",
-      period: "2022 - Present",
+      title: "Site Reliability Engineer",
+      company: "BestSecret Group GmbH",
+      period: "Dec 2023 - Present",
       description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
-      technologies: ["AWS", "Terraform", "Docker", "Kubernetes"]
+      technologies: ["Azure", "Terraform", "Docker", "Git", "Ansible", "Prometheus", "Datadog", "ELK", "Grafana"]
     },
     {
-      title: "Full Stack Developer", 
-      company: "Startup Inc",
-      period: "2020 - 2022",
+      title: "Infrastructure Engineer", 
+      company: "Paysafe Group",
+      period: "Jun 2021 - Nov 2023",
       description: "Developed web applications using React, Node.js, and cloud technologies.",
-      technologies: ["React", "Node.js", "MongoDB", "AWS"]
+      technologies: ["AWS", "Python", "Puppet", "Ansible", "Terraform", "Git", "Icinga", "Docker", "ELK", "Grafana"]
     },
     {
-      title: "Junior Developer",
-      company: "Software Solutions",
-      period: "2018 - 2020", 
+      title: "Junior Engineer",
+      company: "Sintrex Integration Services",
+      period: "Mar 2018 - Apr 2021", 
       description: "Started my journey in software development, working on various client projects.",
-      technologies: ["JavaScript", "Python", "Git", "Linux"]
+      technologies: ["Linux", "Cisco", "MySQL", "ELK", "PowerBI", "Microsoft Word & Excel", "Grafana"]
     }
   ];
 
