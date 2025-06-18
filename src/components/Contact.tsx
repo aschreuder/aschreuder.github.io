@@ -34,7 +34,7 @@ const Contact = () => {
         </div>
         <div className="mt-16 pt-8 border-t border-slate-700/50">
           <p className="text-slate-400">
-            © 2024 Portfolio. Built with React & Tailwind CSS
+            © 2025 Portfolio. Built with React & Tailwind CSS
           </p>
         </div>
       </div>
