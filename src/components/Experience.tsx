@@ -1,5 +1,5 @@
-
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const Experience = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -11,21 +11,30 @@ const Experience = () => {
       title: "Site Reliability Engineer",
       company: "BestSecret Group GmbH",
       period: "Dec 2023 - Present",
-      description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
+      description: [
+        "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
+        "Implemented monitoring and alerting with Prometheus and Grafana.",
+        "Managed cloud resources on Azure using Terraform.",
+        "Automated configuration management with Ansible."
+      ],
       technologies: ["Azure", "Terraform", "Docker", "Git", "Ansible", "Prometheus", "Datadog", "ELK", "Grafana"]
     },
     {
       title: "Infrastructure Engineer", 
       company: "Paysafe Group",
       period: "Jun 2021 - Nov 2023",
-      description: "Developed web applications using React, Node.js, and cloud technologies.",
+      description: [
+        "Developed web applications using React, Node.js, and cloud technologies."
+      ],
       technologies: ["AWS", "Python", "Puppet", "Ansible", "Terraform", "Git", "Icinga", "Docker", "ELK", "Grafana"]
     },
     {
       title: "Junior Engineer",
       company: "Sintrex Integration Services",
       period: "Mar 2018 - Apr 2021", 
-      description: "Started my journey in software development, working on various client projects.",
+      description: [
+        "Started my journey in software development, working on various client projects."
+      ],
       technologies: ["Linux", "Cisco", "MySQL", "ELK", "PowerBI", "Microsoft Word & Excel", "Grafana"]
     }
   ];
@@ -48,11 +57,11 @@ const Experience = () => {
         // Calculate progress through the section
         const progress = (scrollY - sectionStart) / (sectionEnd - sectionStart);
         const clampedProgress = Math.max(0, Math.min(1, progress));
-        
+           
         // Determine which experience should be active based on progress
         const experienceIndex = Math.floor(clampedProgress * experiences.length);
         const boundedIndex = Math.max(0, Math.min(experiences.length - 1, experienceIndex));
-        
+
         setActiveIndex(boundedIndex);
       }
     };
@@ -69,7 +78,6 @@ const Experience = () => {
           Work Experience
         </h2>
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-600"></div>
           <div 
             className="absolute left-8 top-0 w-0.5 bg-gradient-to-b from-cyan-400 to-blue-500 transition-all duration-150 ease-out"
@@ -85,14 +93,12 @@ const Experience = () => {
                 className="relative flex items-start group"
                 ref={el => experienceRefs.current[index] = el}
               >
-                {/* Timeline dot */}
                 <div className={`absolute left-6 w-4 h-4 rounded-full border-4 border-slate-900 shadow-lg transition-all duration-300 z-10 ${
                   index <= activeIndex 
                     ? 'bg-gradient-to-br from-cyan-400 to-blue-500 shadow-cyan-400/30 scale-125' 
                     : 'bg-slate-600 shadow-slate-600/30'
                 }`}></div>
                 
-                {/* Content card */}
                 <div className="ml-16 w-full">
                   <div className={`bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 ${
                     index <= activeIndex
@@ -112,7 +118,29 @@ const Experience = () => {
                         {exp.period}
                       </div>
                     </div>
-                    <p className="text-slate-300 mb-4 leading-relaxed">{exp.description}</p>
+
+                    {/* Bullet point description with animation */}
+                    <motion.ul 
+                      className="list-disc list-inside space-y-2 text-slate-300 mb-4"
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ staggerChildren: 0.1 }}
+                    >
+                      {exp.description.map((point, i) => (
+                        <motion.li
+                          key={i}
+                          variants={{
+                            hidden: { opacity: 0, x: -10 },
+                            visible: { opacity: 1, x: 0 }
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {point}
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
