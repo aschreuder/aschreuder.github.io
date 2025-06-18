@@ -2,9 +2,9 @@ import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 
 const Contact = () => {
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
-    { icon: Mail, label: 'Email', href: 'mailto:' },
+    { icon: Github, label: 'GitHub', href: 'https://github.com/aschreuder' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/arnaud-schreuder/' },
+    { icon: Mail, label: 'Email', href: 'mailto:arnaudschreuder@gmail.com' },
     { icon: FileText, label: 'Medium', href: '#' }
   ];
 

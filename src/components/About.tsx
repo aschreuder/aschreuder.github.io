@@ -8,12 +8,10 @@ const About = () => {
         </h2>
         <div className="text-center">
           <p className="text-lg text-slate-300 leading-relaxed mb-6">
-            I'm a passionate developer with expertise in modern web technologies and cloud infrastructure. 
-            I enjoy creating efficient, scalable solutions and have experience working across the full stack.
+            I am a DevOps | SRE | Cloud Engineer with a strong observability background across multiple stacks, such as Prometheus, ELK, Datadog, Icinga2 and even custom built platforms.
           </p>
           <p className="text-lg text-slate-300 leading-relaxed">
-            When I'm not coding, you can find me exploring new technologies, contributing to open source projects, 
-            and sharing my knowledge through technical writing and community involvement.
+            I am passionate about building and scaling infrastructure using IaC tools such as Terraform, and thoroughly documenting processes.
           </p>
         </div>
       </div>
