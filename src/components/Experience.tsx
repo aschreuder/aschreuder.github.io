@@ -1,9 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
   const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const experiences = [
@@ -46,112 +49,166 @@ const Experience = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
+    if (!sectionRef.current || !timelineRef.current) return;
+    
+    const ctx = gsap.context(() => {
+      // Timeline progress animation
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            gsap.to(timelineRef.current, {
+              height: `${progress * 100}%`,
+              duration: 0.1,
+              ease: "none"
+            });
+          }
+        }
+      });
 
-      const section = sectionRef.current;
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
+      // Animate each experience item
+      experienceRefs.current.forEach((ref, index) => {
+        if (ref) {
+          gsap.fromTo(ref, 
+            {
+              opacity: 0,
+              x: -50,
+              scale: 0.9
+            },
+            {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              duration: 0.6,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: ref,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
 
-      // Check if we're in the experience section
-      const sectionStart = sectionTop - windowHeight / 2;
-      const sectionEnd = sectionTop + sectionHeight - windowHeight / 2;
+          // Dot animation
+          const dot = ref.querySelector('.timeline-dot');
+          if (dot) {
+            gsap.fromTo(dot,
+              {
+                scale: 1,
+                backgroundColor: "#64748b"
+              },
+              {
+                scale: 1.25,
+                backgroundColor: "#22d3ee",
+                duration: 0.4,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: ref,
+                  start: "top 60%",
+                  end: "bottom 40%",
+                  toggleActions: "play none none reverse"
+                }
+              }
+            );
+          }
 
-      if (scrollY >= sectionStart && scrollY <= sectionEnd) {
-        // Calculate progress through the section
-        const progress = (scrollY - sectionStart) / (sectionEnd - sectionStart);
-        const clampedProgress = Math.max(0, Math.min(1, progress));
-           
-        // Determine which experience should be active based on progress
-        const experienceIndex = Math.floor(clampedProgress * experiences.length);
-        const boundedIndex = Math.max(0, Math.min(experiences.length - 1, experienceIndex));
+          // Animate bullet points with stagger effect
+          const bulletPoints = ref.querySelectorAll('.bullet-point');
+          if (bulletPoints.length > 0) {
+            gsap.fromTo(bulletPoints,
+              {
+                opacity: 0,
+                x: -20,
+                scale: 0.8
+              },
+              {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 0.4,
+                ease: "power2.out",
+                stagger: 0.1,
+                scrollTrigger: {
+                  trigger: ref,
+                  start: "top 70%",
+                  end: "bottom 30%",
+                  toggleActions: "play none none reverse"
+                }
+              }
+            );
+          }
+        }
+      });
+    }, sectionRef);
 
-        setActiveIndex(boundedIndex);
-      }
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Call once to set initial state
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [experiences.length]);
+  }, []);
 
   return (
-    <section id="experience" className="py-20 px-6" ref={sectionRef}>
+    <section id="experience" className="py-20 px-4 sm:px-6" ref={sectionRef}>
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl font-bold text-white mb-16 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-16 text-center">
           Work Experience
         </h2>
         <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+          {/* Timeline line background */}
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+          {/* Animated timeline line */}
           <div 
-            className="absolute left-8 top-0 w-0.5 bg-gradient-to-b from-cyan-400 to-blue-500 transition-all duration-150 ease-out"
-            style={{
-              height: `${((activeIndex + 1) / experiences.length) * 100}%`
-            }}
+            ref={timelineRef}
+            className="absolute left-6 sm:left-8 top-0 w-0.5 bg-gradient-to-b from-cyan-400 to-blue-500"
+            style={{ height: '0%' }}
           ></div>
           
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             {experiences.map((exp, index) => (
               <div 
                 key={index} 
                 className="relative flex items-start group"
                 ref={el => experienceRefs.current[index] = el}
               >
-                <div className={`absolute left-6 w-4 h-4 rounded-full border-4 border-slate-900 shadow-lg transition-all duration-300 z-10 ${
-                  index <= activeIndex 
-                    ? 'bg-gradient-to-br from-cyan-400 to-blue-500 shadow-cyan-400/30 scale-125' 
-                    : 'bg-slate-600 shadow-slate-600/30'
-                }`}></div>
+                {/* Timeline dot */}
+                <div className="timeline-dot absolute left-4 sm:left-6 w-4 h-4 rounded-full border-4 border-slate-900 shadow-lg z-10 bg-slate-600"></div>
                 
-                <div className="ml-16 w-full">
-                  <div className={`bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 ${
-                    index <= activeIndex
-                      ? 'border-cyan-400/50 shadow-lg shadow-cyan-400/10'
-                      : 'border-slate-700/50'
-                  }`}>
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                {/* Content card */}
+                <div className="ml-12 sm:ml-16 w-full">
+                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-400/50 transition-all duration-300">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                       <div>
-                        <h3 className={`text-xl font-semibold transition-colors duration-300 ${
-                          index <= activeIndex ? 'text-cyan-400' : 'text-white'
-                        }`}>
+                        <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-1">
                           {exp.title}
                         </h3>
-                        <h4 className="text-cyan-400 font-medium">{exp.company}</h4>
+                        <h4 className="text-cyan-400 font-medium text-sm sm:text-base">{exp.company}</h4>
                       </div>
-                      <div className="text-slate-400 font-mono text-sm bg-slate-700/50 px-3 py-1 rounded-full mt-2 md:mt-0">
+                      <div className="text-slate-400 font-mono text-xs sm:text-sm bg-slate-700/50 px-3 py-1 rounded-full mt-2 sm:mt-0 self-start">
                         {exp.period}
                       </div>
                     </div>
-
-                    {/* Bullet point description with animation */}
-                    <motion.ul 
-                      className="list-disc list-inside space-y-2 text-slate-300 mb-4"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      transition={{ staggerChildren: 0.1 }}
-                    >
-                      {exp.description.map((point, i) => (
-                        <motion.li
-                          key={i}
-                          variants={{
-                            hidden: { opacity: 0, x: -10 },
-                            visible: { opacity: 1, x: 0 }
-                          }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          {point}
-                        </motion.li>
+                    <p className="text-slate-300 mb-4 leading-relaxed text-sm sm:text-base">{exp.description}</p>
+                    
+                    {/* Bullet Points */}
+                    <ul className="mb-4 space-y-2">
+                      {exp.bulletPoints.map((point, pointIndex) => (
+                        <li key={pointIndex} className="bullet-point flex items-start text-slate-300 text-sm sm:text-base">
+                          <div className="w-2 h-2 bg-slate-300 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <span className="leading-relaxed">{point}</span>
+                        </li>
                       ))}
-                    </motion.ul>
-
+                    </ul>
+                    
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/30 transition-colors duration-200"
+                          className="px-2 sm:px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs sm:text-sm border border-cyan-500/30 hover:bg-cyan-500/30 transition-colors duration-200"
                         >
                           {tech}
                         </span>
