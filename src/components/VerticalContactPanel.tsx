@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 
-const VerticalContactPanel = () => {Add commentMore actions
+const VerticalContactPanel = () => {
   const socialLinks = [
     { icon: Github, label: 'GitHub', href: '#' },
     { icon: Linkedin, label: 'LinkedIn', href: '#' },
