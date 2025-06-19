@@ -7,10 +7,11 @@ import Projects from '@/components/Projects';
 import Blogs from '@/components/Blogs';
 import Contact from '@/components/Contact';
 import Navigation from '@/components/Navigation';
+import VerticalContactPanel from '@/components/VerticalContactPanel';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-900 relative overflow-x-hidden">
       {/* Animated starfield background */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"></div>
@@ -65,6 +66,9 @@ const Index = () => {
         <Blogs />
         <Contact />
       </div>
+
+      {/* Vertical Contact Panel */}Add commentMore actions
+      <VerticalContactPanel />
     </div>
   );
 };
