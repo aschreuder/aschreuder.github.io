@@ -11,40 +11,43 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Site Reliability Engineer",
-      company: "BestSecret Group GmbH",
-      period: "Dec 2023 - Present",
-      description: [
-        "Migrated the UptimeRobot URL monitoring solution from Ansible to Terraform, using GitLab CI/CD for automation and Azure for secure Terraform state management",
-        "Developed and executed a change protocol for Proxmox 7 to 8 upgrade, ensuring system stability with zero downtime",
-        "Optimized alerting systems by adjusting thresholds and implementing automated incident handling processes, significantly reducing false positives and improving the signal-to-noise ratio during On-call hours. As a result, on-call alerts decreased from 645 in February 2024 to 117 by August 2024, improving response efficiency and reducing alert fatigue.",
-        "Conducted code reviews and approved production-level configuration changes, safeguarding deployment integrity and stability."
+      title: "Senior DevOps Engineer",
+      company: "Tech Company",
+      period: "2022 - Present",
+      description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
+      bulletPoints: [
+        "Architected and implemented CI/CD pipelines serving 50+ microservices",
+        "Reduced deployment time by 70% through automation and containerization",
+        "Led cloud migration initiative saving $200K annually in infrastructure costs",
+        "Mentored junior engineers and established DevOps best practices"
       ],
-      technologies: ["Azure", "Terraform", "Docker", "Git", "Ansible", "Prometheus", "Datadog", "ELK", "Grafana"]
+      technologies: ["AWS", "Terraform", "Docker", "Kubernetes"]
     },
     {
-      title: "Infrastructure Engineer", 
-      company: "Paysafe Group",
-      period: "Jun 2021 - Nov 2023",
-      description: [
-        "Successfully led the migration of all application servers to a new virtual environment running an upgraded version of Debian. Leveraged Terraform for provisioning and building new virtual machines and utilized Puppet for seamless configuration management. Integrated GitLab CI/CD to fully automate the deployment pipeline, ensuring smooth, efficient, and reliable application deployments across the new infrastructure.",
-        "Contributed to the successful migration of our on-premise SFTP solution to AWS, leveraging Terraform to build a resilient infrastructure across two regions and four availability zones, ensuring high availability and security.",
-        "Ensured high availability of applications, databases, and services using Icinga2 and Nagios by developing custom Python scripts for advanced monitoring. This included a ZFS monitoring script to track storage performance and health, as well as a switch port threshold monitoring script for Cisco switches to identify potential switch port errors, discards or high traffic utilization.",
-        "Performing critical security updates on managed servers, including GitLab, firewalls, and Confluence, to patch vulnerabilities, protect against potential threats, and ensure compliance with security best practices"
+      title: "Full Stack Developer", 
+      company: "Startup Inc",
+      period: "2020 - 2022",
+      description: "Developed web applications using React, Node.js, and cloud technologies.",
+      bulletPoints: [
+        "Built responsive web applications with React and TypeScript",
+        "Developed RESTful APIs serving 10K+ daily active users",
+        "Implemented real-time features using WebSocket connections",
+        "Optimized database queries improving response time by 40%"
       ],
-      technologies: ["AWS", "Python", "Puppet", "Ansible", "Terraform", "Git", "Icinga", "Docker", "ELK", "Grafana"]
+      technologies: ["React", "Node.js", "MongoDB", "AWS"]
     },
     {
-      title: "Junior Engineer",
-      company: "Sintrex Integration Services",
-      period: "Mar 2018 - Apr 2021", 
-      description: [
-        "Extracted data from MySQL to generate network performance reports in Excel, including WAN link utilization, throughput, discards, errors, and packet loss. Developed interactive dashboards in Grafana, Kibana, and Microsoft Power BI to visualize NetFlow top talkers by IP and location, and to monitor syslog alerts.",
-        "Pioneered the design of the company's first SD-WAN dashboard, defining data integration from the Cisco Viptela REST API using Postman, resulting in a 30% enhancement in network visibility and monitoring across 50+ client locations.",
-        "Directed the company's inaugural Disaster Recovery project, crafting a comprehensive action plan that ensured 100% redundancy across all critical systems, integrating automatic failover to handle emergencies, and effectively minimizing data loss while securing business continuity.",
-        "Advanced monitoring of Server and Network Infrastructure of large corporate clients via our Monitoring solutions (SNMP / Internal Monitoring Solution / Net Flow / Syslog / Rest API's.)"
+      title: "Junior Developer",
+      company: "Software Solutions",
+      period: "2018 - 2020", 
+      description: "Started my journey in software development, working on various client projects.",
+      bulletPoints: [
+        "Collaborated on client projects using agile development methodologies",
+        "Fixed bugs and implemented new features in legacy codebases",
+        "Participated in code reviews and learned industry best practices",
+        "Contributed to open-source projects and internal tooling"
       ],
-      technologies: ["Linux", "Cisco", "MySQL", "ELK", "PowerBI", "Microsoft Word & Excel", "Grafana"]
+      technologies: ["JavaScript", "Python", "Git", "Linux"]
     }
   ];
 
@@ -180,7 +183,7 @@ const Experience = () => {
                 
                 {/* Content card */}
                 <div className="ml-12 sm:ml-16 w-full">
-                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 shadow transition-all duration-500 group-hover:shadow-cyan-400/20">
+                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-400/50 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                       <div>
                         <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-1">
@@ -194,11 +197,10 @@ const Experience = () => {
                     </div>
                     <p className="text-slate-300 mb-4 leading-relaxed text-sm sm:text-base">{exp.description}</p>
                     
-
                     {/* Bullet Points - with safety check */}
                     {exp.bulletPoints && exp.bulletPoints.length > 0 && (
                       <ul className="mb-4 space-y-2">
-                        {exp.description.map((point, pointIndex) => (
+                        {exp.bulletPoints.map((point, pointIndex) => (
                           <li key={pointIndex} className="bullet-point flex items-start text-slate-300 text-sm sm:text-base">
                             <div className="w-2 h-2 bg-slate-300 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                             <span className="leading-relaxed">{point}</span>
