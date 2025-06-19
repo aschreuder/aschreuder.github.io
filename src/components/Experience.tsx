@@ -194,15 +194,18 @@ const Experience = () => {
                     </div>
                     <p className="text-slate-300 mb-4 leading-relaxed text-sm sm:text-base">{exp.description}</p>
                     
-                    {/* Bullet Points */}
-                    <ul className="mb-4 space-y-2">
-                      {exp.bulletPoints.map((point, pointIndex) => (
-                        <li key={pointIndex} className="bullet-point flex items-start text-slate-300 text-sm sm:text-base">
-                          <div className="w-2 h-2 bg-slate-300 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <span className="leading-relaxed">{point}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    {/* Bullet Points - with safety check */}
+                    {exp.bulletPoints && exp.bulletPoints.length > 0 && (
+                      <ul className="mb-4 space-y-2">
+                        {exp.bulletPoints.map((point, pointIndex) => (
+                          <li key={pointIndex} className="bullet-point flex items-start text-slate-300 text-sm sm:text-base">
+                            <div className="w-2 h-2 bg-slate-300 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="leading-relaxed">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
