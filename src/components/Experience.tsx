@@ -180,7 +180,7 @@ const Experience = () => {
                 
                 {/* Content card */}
                 <div className="ml-12 sm:ml-16 w-full">
-                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-400/50 transition-all duration-300">
+                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 shadow transition-all duration-500 group-hover:shadow-cyan-400/20">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                       <div>
                         <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-1">
@@ -198,7 +198,7 @@ const Experience = () => {
                     {/* Bullet Points - with safety check */}
                     {exp.bulletPoints && exp.bulletPoints.length > 0 && (
                       <ul className="mb-4 space-y-2">
-                        {exp.bulletPoints.map((point, pointIndex) => (
+                        {exp.description.map((point, pointIndex) => (
                           <li key={pointIndex} className="bullet-point flex items-start text-slate-300 text-sm sm:text-base">
                             <div className="w-2 h-2 bg-slate-300 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                             <span className="leading-relaxed">{point}</span>
