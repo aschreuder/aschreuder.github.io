@@ -23,12 +23,12 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-center items-center">
-          <div className="hidden md:flex space-x-8">
+          <div className="flex flex-wrap justify-center space-x-2 sm:space-x-8">
             {['about', 'experience', 'tech', 'projects', 'blogs', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-slate-300 hover:text-white transition-colors duration-200 capitalize"
+                className="text-slate-300 hover:text-white transition-colors duration-200 capitalize text-sm sm:text-base px-2 py-1"
               >
                 {item === 'tech' ? 'Tech Stack' : item}
               </button>
