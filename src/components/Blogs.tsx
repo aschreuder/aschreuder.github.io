@@ -1,5 +1,5 @@
 
-const Blogs = () => {
+{/* const Blogs = () => {
   const blogPosts = [
     {
       title: "Building Scalable Infrastructure with Terraform",
@@ -72,3 +72,4 @@ const Blogs = () => {
 };
 
 export default Blogs;
+*/}

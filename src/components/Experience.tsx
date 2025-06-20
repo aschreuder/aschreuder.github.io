@@ -97,6 +97,23 @@ const Experience = () => {
             }
           );
 
+          // Card highlighting effect
+          const card = ref.querySelector('.experience-card');
+          if (card) {
+            gsap.to(card, {
+              borderColor: "#22d3ee",
+              backgroundColor: "rgba(30, 41, 59, 0.8)",
+              duration: 0.4,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: ref,
+                start: "top 60%",
+                end: "bottom 40%",
+                toggleActions: "play none none reverse"
+              }
+            });
+          }
+
           // Dot animation
           const dot = ref.querySelector('.timeline-dot');
           if (dot) {
@@ -179,11 +196,11 @@ const Experience = () => {
                 ref={el => experienceRefs.current[index] = el}
               >
                 {/* Timeline dot */}
-                <div className="timeline-dot absolute left-4 sm:left-6 w-4 h-4 rounded-full border-4 border-slate-900 shadow-lg z-10 bg-slate-600"></div>
+                <div className="timeline-dot absolute left-4 sm:left-6 w-4 h-4 rounded-full border-4 border-slate-900 shadow-lg z-10 bg-slate-600 transition-all duration-300"></div>
                 
                 {/* Content card */}
                 <div className="ml-12 sm:ml-16 w-full">
-                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-400/50 transition-all duration-300">
+                  <div className="experience-card bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-400/50 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                       <div>
                         <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-1">

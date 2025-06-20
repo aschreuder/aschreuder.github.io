@@ -4,7 +4,7 @@ import About from '@/components/About';
 import Experience from '@/components/Experience';
 import TechStack from '@/components/TechStack';
 import Projects from '@/components/Projects';
-import Blogs from '@/components/Blogs';
+{/*import Blogs from '@/components/Blogs';*/}
 import Contact from '@/components/Contact';
 import Navigation from '@/components/Navigation';
 import VerticalContactPanel from '@/components/VerticalContactPanel';
@@ -63,7 +63,7 @@ const Index = () => {
         <Experience />
         <TechStack />
         <Projects />
-        <Blogs />
+        {/*<Blogs />*/}
         <Contact />
       </div>
 
