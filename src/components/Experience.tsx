@@ -11,10 +11,11 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Senior DevOps Engineer",
-      company: "Tech Company",
-      period: "2022 - Present",
+      title: "Site Reliability Engineer",
+      company: "BestSecret Group GmbH",
+      period: "Dec 2023 - Present",
       description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
+      logo: "https://media.licdn.com/dms/image/v2/D4D0BAQG5NkWQWC5icA/company-logo_200_200/company-logo_200_200/0/1731583537087/bestsecret_logo?e=2147483647&v=beta&t=fV173VHX8hoCNZbiX5_HIvB7P-Ncdx2JSTdxR8yJSNE",
       bulletPoints: [
         "Architected and implemented CI/CD pipelines serving 50+ microservices",
         "Reduced deployment time by 70% through automation and containerization",
@@ -24,10 +25,11 @@ const Experience = () => {
       technologies: ["AWS", "Terraform", "Docker", "Kubernetes"]
     },
     {
-      title: "Full Stack Developer", 
-      company: "Startup Inc",
-      period: "2020 - 2022",
+      title: "Infrastructure Engineer", 
+      company: "Paysafe Group",
+      period: "Jun 2021 - Nov 2023",
       description: "Developed web applications using React, Node.js, and cloud technologies.",
+      logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=100&h=100&fit=crop&crop=center",
       bulletPoints: [
         "Built responsive web applications with React and TypeScript",
         "Developed RESTful APIs serving 10K+ daily active users",
@@ -37,10 +39,11 @@ const Experience = () => {
       technologies: ["React", "Node.js", "MongoDB", "AWS"]
     },
     {
-      title: "Junior Developer",
-      company: "Software Solutions",
+      title: "Junior Engineer",
+      company: "Sintrex Integration services",
       period: "2018 - 2020", 
       description: "Started my journey in software development, working on various client projects.",
+      logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=100&h=100&fit=crop&crop=center",
       bulletPoints: [
         "Collaborated on client projects using agile development methodologies",
         "Fixed bugs and implemented new features in legacy codebases",
@@ -202,11 +205,18 @@ const Experience = () => {
                 <div className="ml-12 sm:ml-16 w-full">
                   <div className="experience-card bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-400/50 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-1">
-                          {exp.title}
-                        </h3>
-                        <h4 className="text-cyan-400 font-medium text-sm sm:text-base">{exp.company}</h4>
+                      <div className="flex items-center space-x-3">
+                        <img 
+                          src={exp.logo} 
+                          alt={`${exp.company} logo`}
+                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover border border-slate-600"
+                        />
+                        <div>
+                          <h3 className="text-lg sm:text-xl font-semibold text-cyan-400 mb-1">
+                            {exp.title}
+                          </h3>
+                          <h4 className="text-cyan-400 font-medium text-sm sm:text-base">{exp.company}</h4>
+                        </div>
                       </div>
                       <div className="text-slate-400 font-mono text-xs sm:text-sm bg-slate-700/50 px-3 py-1 rounded-full mt-2 sm:mt-0 self-start">
                         {exp.period}

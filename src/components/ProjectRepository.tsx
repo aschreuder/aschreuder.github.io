@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { ChevronRight, ChevronDown, File, Folder, X } from 'lucide-react';
+import { ChevronRight, ChevronDown, File, Folder, X, Github } from 'lucide-react';
 
 interface FileNode {
   name: string;
@@ -14,6 +13,7 @@ interface ProjectRepositoryProps {
     title: string;
     description: string;
     tech: string[];
+    githubUrl: string;
   };
   onClose: () => void;
 }
@@ -116,21 +116,34 @@ const ProjectRepository = ({ project, onClose }: ProjectRepositoryProps) => {
     });
   };
 
+  const handleGithubClick = () => {
+    window.open(project.githubUrl, '_blank');
+  };
+
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-slate-800/95 backdrop-blur-sm rounded-xl border border-slate-700 w-full max-w-6xl h-5/6 flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-slate-700">
-          <div>
+          <div className="flex-1">
             <h3 className="text-xl font-semibold text-white">{project.title}</h3>
             <p className="text-slate-400 text-sm">{project.description}</p>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
-          >
-            <X className="w-5 h-5 text-slate-400" />
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={handleGithubClick}
+              className="flex items-center gap-2 px-4 py-2 bg-slate-700/50 hover:bg-slate-600/50 border border-slate-600/50 hover:border-cyan-400/50 rounded-lg transition-all duration-300 text-slate-300 hover:text-cyan-400"
+            >
+              <Github size={16} />
+              <span className="text-sm font-medium">GitHub</span>
+            </button>
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+            >
+              <X className="w-5 h-5 text-slate-400" />
+            </button>
+          </div>
         </div>
 
         {/* Content */}
