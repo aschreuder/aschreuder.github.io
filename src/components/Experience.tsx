@@ -20,12 +20,12 @@ const Experience = () => {
       description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
       logo: "/logos/bestsecret_logo.jpg",
       bulletPoints: [
-        "Architected and implemented CI/CD pipelines serving 50+ microservices",
-        "Reduced deployment time by 70% through automation and containerization",
-        "Led cloud migration initiative saving $200K annually in infrastructure costs",
-        "Mentored junior engineers and established DevOps best practices"
+        "Migrated UptimeRobot URL monitoring solution from Ansible to Terraform, using GitLab CI/CD for automated deployment and Azure blob storage for state management.",
+        "Developed and executed a change protocol for Proxmox 7 to 8 upgrade, ensuring system stability with zero downtime",
+        "Conducted code reviews and approved production-level configuration changes, safeguarding deployment integrity and stability",
+        "Optomized alerting systems to reduce On-Call alerts from 645 in February 2024 to 117 by August 2024."
       ],
-      technologies: ["AWS", "Terraform", "Docker", "Kubernetes"]
+      technologies: ["Azure", "Terraform", "Ansible", "Docker", "Git", "Prometheus", "ELK", "Datadog", "Grafana"]
     },
     {
       title: "Infrastructure Engineer", 
@@ -34,26 +34,26 @@ const Experience = () => {
       description: "Developed web applications using React, Node.js, and cloud technologies.",
       logo: "/logos/paysafe_logo.png",
       bulletPoints: [
-        "Built responsive web applications with React and TypeScript",
-        "Developed RESTful APIs serving 10K+ daily active users",
-        "Implemented real-time features using WebSocket connections",
-        "Optimized database queries improving response time by 40%"
+        "Migrated all application servers to a new virtualisation cluster, using Terraform, Puppet and Git for seamless deployment.",
+        "Developed custom python monitoring scripts for ZFS and Cisco switch port monitoring on newly deployed infrastructure.",
+        "Contributed to a successful migration of on-premise SFTP solution to AWS.",
+        "Performing critical security updates on managed servers, including GitLab, firewalls, and Confluence, to patch vulnerabilities, protect against potential threats, and ensure compliance with security best practices."
       ],
-      technologies: ["React", "Node.js", "MongoDB", "AWS"]
+      technologies: ["AWS", "Terraform", "Ansible", "Puppet", "Docker", "Git", "Python", "ELK", "Icinga", "Grafana"]
     },
     {
       title: "Junior Engineer",
       company: "Sintrex Integration services",
-      period: "2018 - 2020", 
+      period: "Mar 2018 - Apr 2021", 
       description: "Started my journey in software development, working on various client projects.",
       logo: "/logos/sintrex_logo.jpg",
       bulletPoints: [
-        "Collaborated on client projects using agile development methodologies",
-        "Fixed bugs and implemented new features in legacy codebases",
-        "Participated in code reviews and learned industry best practices",
-        "Contributed to open-source projects and internal tooling"
+        "Extracted data from MySQL to generate network performance reports in Excel, including WAN link utilization, throughput, discards, errors, and packet loss. Developed interactive dashboards in Grafana, Kibana, and Microsoft Power BI to visualize NetFlow top talkers by IP and location, and to monitor syslog alerts.",
+        "Pioneered the design of the company's first SD-WAN dashboard, defining data integration from the Cisco Viptela REST API using Postman, resulting in a 30% enhancement in network visibility and monitoring across 50+ client locations.",
+        "Directed the company's inaugural Disaster Recovery project, crafting a comprehensive action plan that ensured 100% redundancy across all critical systems, integrating automatic failover to handle emergencies, and effectively minimizing data loss while securing business continuity.",
+        "Analyzed and interpreted data from network monitoring tools to identify potential areas for improvement and assess risk, driving proactive enhancements and risk mitigation."
       ],
-      technologies: ["JavaScript", "Python", "Git", "Linux"]
+      technologies: ["Linux", "MySQL", "Cisco", "Microsoft Word & Excel", "PowerBi", "Grafana", "ELK"]
     }
   ];
 
