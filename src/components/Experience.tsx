@@ -17,7 +17,7 @@ const Experience = () => {
       title: "Site Reliability Engineer",
       company: "BestSecret Group GmbH",
       period: "Dec 2023 - Present",
-      {/*description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",*/}
+      // description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
       logo: "/logos/bestsecret_logo.jpg",
       bulletPoints: [
         "Migrated UptimeRobot URL monitoring solution from Ansible to Terraform, using GitLab CI/CD for automated deployment and Azure blob storage for state management.",
@@ -31,7 +31,7 @@ const Experience = () => {
       title: "Infrastructure Engineer", 
       company: "Paysafe Group",
       period: "Jun 2021 - Nov 2023",
-      {/*description: "Developed web applications using React, Node.js, and cloud technologies.",*/}
+      // description: "Developed web applications using React, Node.js, and cloud technologies.",
       logo: "/logos/paysafe_logo.png",
       bulletPoints: [
         "Migrated all application servers to a new virtualisation cluster, using Terraform, Puppet and Git for seamless deployment.",
@@ -45,7 +45,7 @@ const Experience = () => {
       title: "Junior Engineer",
       company: "Sintrex Integration services",
       period: "Mar 2018 - Apr 2021", 
-      {/*description: "Started my journey in software development, working on various client projects.",*/}
+      // description: "Started my journey in software development, working on various client projects.",
       logo: "/logos/sintrex_logo.jpg",
       bulletPoints: [
         "Extracted data from MySQL to generate network performance reports in Excel, including WAN link utilization, throughput, discards, errors, and packet loss. Developed interactive dashboards in Grafana, Kibana, and Microsoft Power BI to visualize NetFlow top talkers by IP and location, and to monitor syslog alerts.",
