@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import BestSecretLogo from "../public/logos/bestsecret_logo.jpg";
+import PaysafeLogo from "../public/logos/paysafe_logo.png";
+import SintrexLogo from "../public/logos/sintrex_logo.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +18,7 @@ const Experience = () => {
       company: "BestSecret Group GmbH",
       period: "Dec 2023 - Present",
       description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
-      logo: "https://media.licdn.com/dms/image/v2/D4D0BAQG5NkWQWC5icA/company-logo_200_200/company-logo_200_200/0/1731583537087/bestsecret_logo?e=2147483647&v=beta&t=fV173VHX8hoCNZbiX5_HIvB7P-Ncdx2JSTdxR8yJSNE",
+      logo: BestSecretLogo,
       bulletPoints: [
         "Architected and implemented CI/CD pipelines serving 50+ microservices",
         "Reduced deployment time by 70% through automation and containerization",
@@ -29,7 +32,7 @@ const Experience = () => {
       company: "Paysafe Group",
       period: "Jun 2021 - Nov 2023",
       description: "Developed web applications using React, Node.js, and cloud technologies.",
-      logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=100&h=100&fit=crop&crop=center",
+      logo: PaysafeLogo,
       bulletPoints: [
         "Built responsive web applications with React and TypeScript",
         "Developed RESTful APIs serving 10K+ daily active users",
@@ -43,7 +46,7 @@ const Experience = () => {
       company: "Sintrex Integration services",
       period: "2018 - 2020", 
       description: "Started my journey in software development, working on various client projects.",
-      logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=100&h=100&fit=crop&crop=center",
+      logo: SintrexLogo,
       bulletPoints: [
         "Collaborated on client projects using agile development methodologies",
         "Fixed bugs and implemented new features in legacy codebases",
