@@ -18,7 +18,7 @@ const Experience = () => {
       company: "BestSecret Group GmbH",
       period: "Dec 2023 - Present",
       description: "Leading infrastructure automation and deployment pipelines using modern DevOps practices.",
-      logo: BestSecretLogo,
+      logo: "/logos/bestsecret_logo.jpg",
       bulletPoints: [
         "Architected and implemented CI/CD pipelines serving 50+ microservices",
         "Reduced deployment time by 70% through automation and containerization",
@@ -32,7 +32,7 @@ const Experience = () => {
       company: "Paysafe Group",
       period: "Jun 2021 - Nov 2023",
       description: "Developed web applications using React, Node.js, and cloud technologies.",
-      logo: PaysafeLogo,
+      logo: "/logos/paysafe_logo.png",
       bulletPoints: [
         "Built responsive web applications with React and TypeScript",
         "Developed RESTful APIs serving 10K+ daily active users",
@@ -46,7 +46,7 @@ const Experience = () => {
       company: "Sintrex Integration services",
       period: "2018 - 2020", 
       description: "Started my journey in software development, working on various client projects.",
-      logo: SintrexLogo,
+      logo: "/logos/sintrex_logo.jpg",
       bulletPoints: [
         "Collaborated on client projects using agile development methodologies",
         "Fixed bugs and implemented new features in legacy codebases",
